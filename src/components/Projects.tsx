@@ -1,7 +1,7 @@
 import { PROJECTS_PAGE } from '../constants'
 import Carousel from 'react-multi-carousel'
 import HitoImg from '../assets/hito.webp'
-import ScreenfluenceImg from '../assets/Screenfluence.jpg'
+import ScreenfluenceImg from '../assets/screenfluence.jpg'
 import TaxfulImg from '../assets/taxful.png'
 import TaxplanationImg from '../assets/taxplanation.webp'
 import TextMessageImg from '../assets/TextMessage.svg'
