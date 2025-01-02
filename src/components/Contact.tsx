@@ -98,7 +98,7 @@ export const Contact: React.FC = () => {
   return (
     <div
       id={CONTACT_PAGE}
-      className='element-page relative h-auto md:h-screen w-screen bg-contact dark:bg-contact-dark p-[80px_10vw_0_10vw] md:pt-[100px]'
+      className='element-page relative h-auto md:h-[95vh] w-screen bg-contact dark:bg-contact-dark p-[80px_10vw_40px_10vw] md:pt-[100px] md:pb-0'
     >
       <div className='w-full text-[26px] text-center font-jost uppercase tracking-wider font-bold md:text-[44px] transition-all duration-500 dark:text-white'>
         Contact Me

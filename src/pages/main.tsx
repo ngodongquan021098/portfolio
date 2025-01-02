@@ -13,6 +13,7 @@ import { Projects } from '../components/Projects'
 import { Contact } from '../components/Contact'
 import { LoadingFirstLoad } from '../components/LoadingFirstLoad'
 import { Loading } from '../components/Loading'
+import { Footer } from '../components/Footer'
 
 export const MainPage = () => {
   const dispatch = useDispatch()
@@ -54,6 +55,7 @@ export const MainPage = () => {
       <Projects></Projects>
       <Resume></Resume>
       <Contact></Contact>
+      <Footer></Footer>
       {isShowLoadingFirstLoad && <LoadingFirstLoad></LoadingFirstLoad>}
       <Loading></Loading>
     </React.Fragment>

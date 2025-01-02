@@ -139,7 +139,7 @@ export const Home: React.FC = () => {
 
           <div className='flex items-center h-14'>
             <div
-              onClick={() => openLink('https://www.facebook.com')}
+              onClick={() => openLink('https://www.facebook.com/ngodongquan98')}
               className='text-2xl transition-all duration-500 hover:text-dodge-blue cursor-pointer dark:text-white dark:hover:text-dodge-blue'
             >
               <i className='fa-brands fa-facebook'></i>
@@ -151,7 +151,7 @@ export const Home: React.FC = () => {
               <i className='fa-brands fa-linkedin-in'></i>
             </div>
             <div
-              onClick={() => openLink('https://www.instagram.com')}
+              onClick={() => openLink('https://www.instagram.com/quanngoooo')}
               className='text-2xl transition-all duration-500 ml-4 hover:text-dodge-blue cursor-pointer dark:text-white dark:hover:text-dodge-blue'
             >
               <i className='fa-brands fa-instagram'></i>
