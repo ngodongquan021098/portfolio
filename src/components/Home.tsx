@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import QuanImage from '@/assets/Quan1.png'
+import QuanImage from '../assets/Quan1.png'
 import useIntersectionObserver from '../hooks/useIntersectionObserver'
 import { useDispatch } from 'react-redux'
 import { setCurrentPage } from '../redux/actions'

@@ -1,6 +1,6 @@
 import React from 'react'
-import TestSvg from '@/assets/test.svg'
-import Test1Svg from '@/assets/test1.svg'
+import TestSvg from '../assets/test.svg'
+import Test1Svg from '../assets/test1.svg'
 import { ABOUT_PAGE } from '../constants'
 
 export const About: React.FC = () => {
