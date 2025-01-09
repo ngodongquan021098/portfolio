@@ -2,12 +2,20 @@ import React from 'react'
 import TestSvg from '../assets/test.svg'
 import Test1Svg from '../assets/test1.svg'
 import { ABOUT_PAGE } from '../constants'
+import useWindowSize from '../hooks/useWindowSize'
+import { cn } from 'clsx-for-tailwind'
 
 export const About: React.FC = () => {
+  const { overflow } = useWindowSize()
   return (
     <div
       id={ABOUT_PAGE}
-      className='element-page relative h-auto md:h-screen w-screen bg-about dark:bg-about-dark p-[80px_10vw_0_10vw] md:pt-[100px]'
+      className={cn(
+        'element-page relative h-auto md:h-screen w-screen bg-about dark:bg-about-dark p-[100px_10vw_0_10vw] md:pt-0 lg:pt-[100px] flex flex-col md:justify-center lg:justify-start',
+        {
+          [`md:h-auto md:pb-4`]: !!overflow
+        }
+      )}
     >
       <div className='w-full text-[26px] text-center font-jost uppercase tracking-wider font-bold md:text-[44px] transition-all duration-500 dark:text-white'>
         About

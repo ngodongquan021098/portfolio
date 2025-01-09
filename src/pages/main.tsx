@@ -17,7 +17,7 @@ import { Footer } from '../components/Footer'
 
 export const MainPage = () => {
   const dispatch = useDispatch()
-  const { isMobile } = useWindowSize()
+  const { isMobile, overflow } = useWindowSize()
   const [isShowLoadingFirstLoad, setIsShowLoadingFirstLoad] = useState(true)
   const timeOutRef = useRef<NodeJS.Timeout>()
 
@@ -48,7 +48,7 @@ export const MainPage = () => {
   return (
     <React.Fragment>
       <Header></Header>
-      {!isMobile && <ScrollNav isShowLoadingFirstLoad={isShowLoadingFirstLoad}></ScrollNav>}
+      {!isMobile && !overflow && <ScrollNav isShowLoadingFirstLoad={isShowLoadingFirstLoad}></ScrollNav>}
       <Home></Home>
       <About></About>
       <Skills></Skills>

@@ -8,6 +8,8 @@ import emailJs from '@emailjs/browser'
 import { useDispatch } from 'react-redux'
 import { setIsLoading } from '../redux/actions'
 import { Bounce, toast, ToastOptions, ToastContainer } from 'react-toastify'
+import useWindowSize from '../hooks/useWindowSize'
+import { cn } from 'clsx-for-tailwind'
 
 export type FormValues = {
   fullName: string
@@ -26,6 +28,8 @@ const schema = yup
   .required()
 
 export const Contact: React.FC = () => {
+  const { overflow } = useWindowSize()
+
   const {
     register,
     handleSubmit,
@@ -98,7 +102,12 @@ export const Contact: React.FC = () => {
   return (
     <div
       id={CONTACT_PAGE}
-      className='element-page relative h-auto md:h-[95vh] w-screen bg-contact dark:bg-contact-dark p-[80px_10vw_40px_10vw] md:pt-[100px] md:pb-0'
+      className={cn(
+        'element-page relative h-auto md:h-[100vh] lg:h-[95vh] w-screen bg-contact dark:bg-contact-dark p-[100px_10vw_0_10vw] md:pt-0 lg:pt-[100px] flex flex-col md:justify-center lg:justify-start',
+        {
+          [`md:h-[calc(100vh_+_${overflow}px)] lg:h-[calc(100vh_+_${overflow}px)]`]: !!overflow
+        }
+      )}
     >
       <div className='w-full text-[26px] text-center font-jost uppercase tracking-wider font-bold md:text-[44px] transition-all duration-500 dark:text-white'>
         Contact Me
@@ -149,9 +158,9 @@ export const Contact: React.FC = () => {
             >
               <i className='fa-regular fa-envelope text-2xl dark:text-dark-text'></i>
             </div>
-            <div className='flex flex-col ml-14 flex-1'>
+            <div className='flex flex-col ml-14 flex-1 max-w-full overflow-hidden'>
               <p className='text-3xl font-caveat font-bold tracking-wider p-[10px_0] dark:text-white'>Email</p>
-              <p className='text-[16px] font-jost text-gray-15 opacity-80 text-pretty dark:text-dark-text '>
+              <p className='text-[16px] font-jost text-gray-15 opacity-80 text-pretty dark:text-dark-text max-w-full text-ellipsis overflow-hidden'>
                 ngodongquan98@gmail.com
               </p>
             </div>
@@ -173,8 +182,8 @@ export const Contact: React.FC = () => {
           </div>
         </div>
         <form ref={refForm} onSubmit={handleSubmit(sendEmail)} className='w-full md:flex-1 md:pl-10'>
-          <div ref={elementRef} className='flex flex-col md:flex-row md:justify-between mb-10'>
-            <div className='relative w-full mb-10 md:w-[calc(50%_-_10px)] md:mb-0'>
+          <div ref={elementRef} className='flex flex-col lg:flex-row md:justify-between mb-5 lg:mb-10'>
+            <div className='relative w-full lg:w-[calc(50%_-_10px)] mb-5 lg:mb-0'>
               <label
                 className='text-[14px] uppercase tracking-wider font-bold indent-7 font-jost block dark:text-dark-text'
                 htmlFor='fullName'
@@ -191,7 +200,7 @@ export const Contact: React.FC = () => {
               <p className='text-red-300 font-jost text-sm block indent-4 pt-2 uppercase'>{errors.fullName?.message}</p>
             </div>
 
-            <div className='relative w-full md:w-[calc(50%_-_10px)]'>
+            <div className='relative w-full lg:w-[calc(50%_-_10px)]'>
               <label
                 className='text-[14px] uppercase tracking-wider font-bold indent-7 font-jost block dark:text-dark-text'
                 htmlFor='email'
@@ -210,7 +219,7 @@ export const Contact: React.FC = () => {
             </div>
           </div>
 
-          <div className='relative w-full mb-10'>
+          <div className='relative w-full mb-5 lg:mb-10'>
             <label
               className='text-[14px] uppercase tracking-wider font-bold indent-7 font-jost block dark:text-dark-text'
               htmlFor='subject'

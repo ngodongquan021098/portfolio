@@ -1,10 +1,18 @@
+import { cn } from 'clsx-for-tailwind'
 import { RESUME_PAGE } from '../constants'
+import useWindowSize from '../hooks/useWindowSize'
 
 export const Resume: React.FC = () => {
+  const { overflow } = useWindowSize()
   return (
     <div
       id={RESUME_PAGE}
-      className='element-page relative h-auto md:h-screen w-screen p-[80px_10vw_40px_10vw] md:pt-[100px] bg-resume dark:bg-resume-dark'
+      className={cn(
+        'element-page relative h-auto md:h-screen w-screen p-[100px_10vw_0_10vw] md:pt-0 lg:pt-[100px] bg-resume dark:bg-resume-dark flex flex-col md:justify-center lg:justify-start',
+        {
+          [`md:h-[calc(100vh_+_${overflow}px)]`]: !!overflow
+        }
+      )}
     >
       <div className='w-full text-[26px] text-center font-jost uppercase tracking-wider font-bold md:text-[44px] transition-all duration-500 dark:text-white'>
         Resume
@@ -16,10 +24,10 @@ export const Resume: React.FC = () => {
         </span>
       </div>
 
-      <div className='w-full relative flex h-auto flex-wrap md:justify-between md:h-max mt-10 font-jost after:content-[""] after:w-[1px] after:absolute after:bg-dodge-blue after:left-0 after:h-[102%] after:md:left-1/2 after:md:h-[125%]  after:-top-7'>
+      <div className='w-full relative flex h-auto flex-wrap md:justify-between md:items-start lg:items-stretch md:h-max mt-10 font-jost after:content-[""] after:w-[1px] after:absolute after:bg-dodge-blue after:left-0 after:h-[102%] after:md:left-1/2 after:md:h-[125%] after:-top-7'>
         {/* Step 1 */}
         <div
-          className='relative ml-[20px] w-[calc(100%_-_20px)] md:ml-0 transition-shadow duration-300 md:w-[calc(50%_-_30px)] rounded-2xl border-solid border-[1px] border-gray-300 dark:border-[#e9ecef] p-[25px_30px] mb-10 md:h-[200px] md:max-h-[200px] flex flex-col hover:hover-resume hover:dark:hover-resume-dark
+          className='relative ml-[20px] w-[calc(100%_-_20px)] md:ml-0 transition-shadow duration-300 md:w-[calc(50%_-_30px)] rounded-2xl border-solid border-[1px] border-gray-300 dark:border-[#e9ecef] p-[25px_30px] mb-10 flex flex-col hover:hover-resume hover:dark:hover-resume-dark
         before:content-[""] before:absolute before:top-1/2 before:h-[1px] before:bg-[#d1d5db] before:dark:bg-[#e9ecef] before:-left-[20px] before:w-[20px] before:md:left-auto before:md:-right-[30px] before:md:w-[30px]
         after:content-[""] after:absolute after:w-4 after:h-4 after:top-[calc(50%_-_8px)] after:rounded-full after:bg-dodge-blue after:-left-[28px] after:md:left-auto after:md:-right-[38px] after:animate-pulse'
         >
@@ -40,7 +48,7 @@ export const Resume: React.FC = () => {
 
         {/* Step 2 */}
         <div
-          className='relative ml-[20px] w-[calc(100%_-_20px)] md:ml-0 transition-shadow duration-300 md:w-[calc(50%_-_30px)] rounded-2xl border-solid border-[1px] border-gray-300 dark:border-[#e9ecef] p-[25px_30px]  mb-10  md:h-[200px] md:max-h-[200px] md:translate-y-28 flex flex-col hover:hover-resume hover:dark:hover-resume-dark
+          className='relative ml-[20px] w-[calc(100%_-_20px)] md:ml-0 transition-shadow duration-300 md:w-[calc(50%_-_30px)] rounded-2xl border-solid border-[1px] border-gray-300 dark:border-[#e9ecef] p-[25px_30px] mb-10 md:translate-y-20 lg:translate-y-28 flex flex-col hover:hover-resume hover:dark:hover-resume-dark
         before:content-[""] before:absolute before:top-1/2 before:h-[1px] before:bg-[#d1d5db] before:dark:bg-[#e9ecef] before:-left-[20px] before:w-[20px] before:md:-left-[30px] before:md:w-[30px]
         after:content-[""] after:absolute after:w-4 after:h-4 after:top-[calc(50%_-_8px)] after:rounded-full after:bg-dodge-blue after:-left-[28px] after:md:-left-[38px] after:animate-pulse'
         >
@@ -61,7 +69,7 @@ export const Resume: React.FC = () => {
 
         {/* Step 3 */}
         <div
-          className='relative ml-[20px] w-[calc(100%_-_20px)] md:ml-0 transition-shadow duration-300 md:w-[calc(50%_-_30px)] rounded-2xl border-solid border-[1px] border-gray-300 dark:border-[#e9ecef] p-[25px_30px] mb-10 md:h-[200px] md:max-h-[200px] flex flex-col hover:hover-resume hover:dark:hover-resume-dark
+          className='relative ml-[20px] w-[calc(100%_-_20px)] md:ml-0 transition-shadow duration-300 md:w-[calc(50%_-_30px)] rounded-2xl border-solid border-[1px] border-gray-300 dark:border-[#e9ecef] p-[25px_30px] mb-10 flex flex-col hover:hover-resume hover:dark:hover-resume-dark
         before:content-[""] before:absolute before:top-1/2 before:h-[1px] before:bg-[#d1d5db] before:dark:bg-[#e9ecef] before:-left-[20px] before:w-[20px] before:md:left-auto before:md:-right-[30px] before:md:w-[30px]
         after:content-[""] after:absolute after:w-4 after:h-4 after:top-[calc(50%_-_8px)] after:rounded-full after:bg-dodge-blue after:-left-[28px] after:md:left-auto after:md:-right-[38px] after:animate-pulse'
         >
@@ -83,7 +91,7 @@ export const Resume: React.FC = () => {
 
         {/* Step 4 */}
         <div
-          className='relative ml-[20px] w-[calc(100%_-_20px)] md:ml-0 transition-shadow duration-300 md:w-[calc(50%_-_30px)] rounded-2xl border-solid border-[1px] border-gray-300 dark:border-[#e9ecef] p-[25px_30px] mb-10 md:h-[200px] md:max-h-[200px] md:translate-y-28 flex flex-col hover:hover-resume hover:dark:hover-resume-dark
+          className='relative ml-[20px] w-[calc(100%_-_20px)] md:ml-0 transition-shadow duration-300 md:w-[calc(50%_-_30px)] rounded-2xl border-solid border-[1px] border-gray-300 dark:border-[#e9ecef] p-[25px_30px] mb-10 md:translate-y-20 lg:translate-y-28 flex flex-col hover:hover-resume hover:dark:hover-resume-dark
         before:content-[""] before:absolute before:top-1/2 before:h-[1px] before:bg-[#d1d5db] before:dark:bg-[#e9ecef] before:-left-[20px] before:w-[20px] before:md:-left-[30px] before:md:w-[30px]
         after:content-[""] after:absolute after:w-4 after:h-4 after:top-[calc(50%_-_8px)] after:rounded-full after:bg-dodge-blue after:-left-[28px] after:md:-left-[38px] after:animate-pulse'
         >

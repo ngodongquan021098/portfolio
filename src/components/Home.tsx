@@ -4,8 +4,12 @@ import useIntersectionObserver from '../hooks/useIntersectionObserver'
 import { useDispatch } from 'react-redux'
 import { setCurrentPage } from '../redux/actions'
 import { HOME_PAGE, SKILLS_PAGE } from '../constants'
+import useWindowSize from '../hooks/useWindowSize'
+import { cn } from 'clsx-for-tailwind'
 
 export const Home: React.FC = () => {
+  const { overflow } = useWindowSize()
+
   const refYear = useRef<NodeJS.Timeout>()
 
   const dispatch = useDispatch()
@@ -75,9 +79,11 @@ export const Home: React.FC = () => {
   return (
     <div
       id={HOME_PAGE}
-      className='element-page relative h-auto md:h-screen w-screen bg-home dark:bg-dark pt-28 md:flex-row lg:pt-0 '
+      className={cn('element-page relative h-auto md:h-screen w-screen bg-home dark:bg-dark pt-28 md:pt-0', {
+        [`md:h-auto`]: !!overflow
+      })}
     >
-      <div className='h-full w-full flex flex-col lg:w-auto lg:grid lg:mx-auto lg:grid-rows-8 lg:grid-cols-2'>
+      <div className='h-full w-full flex flex-col lg:w-auto lg:grid lg:mx-auto lg:grid-rows-8 lg:grid-cols-2 md:justify-center'>
         <div className='row-start-2 flex flex-col justify-around items-center lg:row-start-3 lg:row-end-5 lg:items-start lg:ml-[20%] '>
           <p className='font-jost text-sm font-bold uppercase dark:text-white '>
             Hello, <span className='text-dodge-blue dark:text-dodge-blue'>My name is</span>

@@ -2,8 +2,11 @@ import { cn } from 'clsx-for-tailwind'
 import useIntersectionObserver from '../hooks/useIntersectionObserver'
 import { useEffect, useState } from 'react'
 import { SKILLS_PAGE } from '../constants'
+import useWindowSize from '../hooks/useWindowSize'
 
 export const Skills: React.FC = () => {
+  const { overflow } = useWindowSize()
+
   const { elementRef, isIntersecting } = useIntersectionObserver({ threshold: 0.1 })
 
   const [isRunAgain, setIsRunAgain] = useState<number>(0)
@@ -20,7 +23,12 @@ export const Skills: React.FC = () => {
     <div
       ref={elementRef}
       id={SKILLS_PAGE}
-      className='element-page relative h-auto md:h-screen w-screen p-[80px_10vw_40px_10vw] md:pt-[100px] bg-skills dark:bg-skills-dark'
+      className={cn(
+        'element-page relative h-auto md:h-screen w-screen p-[100px_10vw_0_10vw] md:pt-0 lg:pt-[100px] bg-skills dark:bg-skills-dark flex flex-col md:justify-center lg:justify-start',
+        {
+          [`md:h-auto`]: !!overflow
+        }
+      )}
     >
       <div className='w-full text-[26px] text-center font-jost uppercase tracking-wider font-bold md:text-[44px] transition-all duration-500 dark:text-white'>
         Professional skills
