@@ -105,7 +105,7 @@ export const Contact: React.FC = () => {
       className={cn(
         'element-page relative h-auto md:h-[100vh] lg:h-[95vh] w-screen bg-contact dark:bg-contact-dark p-[100px_10vw_0_10vw] md:pt-0 lg:pt-[100px] flex flex-col md:justify-center lg:justify-start',
         {
-          [`md:h-[calc(100vh_+_${overflow}px)] lg:h-[calc(100vh_+_${overflow}px)]`]: !!overflow
+          [`md:h-auto lg:h-auto md:pb-4 lg:pb-4`]: !!overflow
         }
       )}
     >

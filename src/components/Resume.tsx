@@ -10,7 +10,7 @@ export const Resume: React.FC = () => {
       className={cn(
         'element-page relative h-auto md:h-screen w-screen p-[100px_10vw_0_10vw] md:pt-0 lg:pt-[100px] bg-resume dark:bg-resume-dark flex flex-col md:justify-center lg:justify-start',
         {
-          [`md:h-[calc(100vh_+_${overflow}px)]`]: !!overflow
+          [`md:h-[900px]`]: !!overflow
         }
       )}
     >
