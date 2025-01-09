@@ -8,6 +8,7 @@ import { setActiveMenu, setCurrentPage } from '../redux/actions'
 import { ABOUT_PAGE, CONTACT_PAGE, HOME_PAGE, PROJECTS_PAGE, RESUME_PAGE, SKILLS_PAGE } from '../constants'
 import useIntersectionObserver from '../hooks/useIntersectionObserver'
 import useWindowSize from '../hooks/useWindowSize'
+import { toggleNoScroll } from '../helpers'
 
 export const Header: React.FC = () => {
   const dispatch = useDispatch()
@@ -21,7 +22,7 @@ export const Header: React.FC = () => {
   const { isIntersecting, elementRef } = useIntersectionObserver({ threshold: 0 })
 
   const handleClickMenu = (): void => {
-    document.body.classList.toggle('no-scroll')
+    toggleNoScroll()
     setIsActiveMenu((prev) => !prev)
   }
 
@@ -35,8 +36,10 @@ export const Header: React.FC = () => {
     setIsDarkMode(!isDarkMode)
   }
 
-  const handleMoveToPage = (page: string) => {
-    document.body.classList.toggle('no-scroll')
+  const handleMoveToPage = (page: string, isClickLogo?: boolean) => {
+    if (!isClickLogo) {
+      toggleNoScroll()
+    }
     dispatch(setCurrentPage(page))
     setIsActiveMenu(false)
 
@@ -73,7 +76,7 @@ export const Header: React.FC = () => {
         )}
       >
         <img
-          onClick={(): void => handleMoveToPage(HOME_PAGE)}
+          onClick={(): void => handleMoveToPage(HOME_PAGE, true)}
           src={Logo}
           alt='logo'
           className='scale-75 cursor-pointer md:scale-90 dark:brightness-0 dark:invert'

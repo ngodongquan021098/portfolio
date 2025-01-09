@@ -14,6 +14,7 @@ import { Contact } from '../components/Contact'
 import { LoadingFirstLoad } from '../components/LoadingFirstLoad'
 import { Loading } from '../components/Loading'
 import { Footer } from '../components/Footer'
+import { toggleNoScroll } from '../helpers'
 
 export const MainPage = () => {
   const dispatch = useDispatch()
@@ -38,7 +39,7 @@ export const MainPage = () => {
     }
     timeOutRef.current = setTimeout(() => {
       setIsShowLoadingFirstLoad(false)
-      document.body.classList.remove('no-scroll')
+      toggleNoScroll()
     }, TIME_LOADING_FIRST_LOAD)
     return () => {
       clearTimeout(timeOutRef.current)

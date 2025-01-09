@@ -10,6 +10,7 @@ import { setIsLoading } from '../redux/actions'
 import { Bounce, toast, ToastOptions, ToastContainer } from 'react-toastify'
 import useWindowSize from '../hooks/useWindowSize'
 import { cn } from 'clsx-for-tailwind'
+import { toggleNoScroll } from '../helpers'
 
 export type FormValues = {
   fullName: string
@@ -71,7 +72,7 @@ export const Contact: React.FC = () => {
 
   const sendEmail = () => {
     dispatch(setIsLoading(true))
-    document.body.classList.add('no-scroll')
+    toggleNoScroll()
     if (refForm.current !== null)
       emailJs
         .sendForm(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID, refForm.current, {
@@ -80,12 +81,12 @@ export const Contact: React.FC = () => {
         .then(
           () => {
             dispatch(setIsLoading(false))
-            document.body.classList.remove('no-scroll')
+            toggleNoScroll()
             showToast(true)
           },
           () => {
             dispatch(setIsLoading(false))
-            document.body.classList.remove('no-scroll')
+            toggleNoScroll()
             showToast(false)
           }
         )
