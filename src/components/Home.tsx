@@ -69,7 +69,7 @@ export const Home: React.FC = () => {
 
   const downLoadCV = () => {
     const link = document.createElement('a')
-    link.href = '/files/cv.pdf' // Đường dẫn tới tệp trong thư mục public
+    link.href = '/files/NgoDongQuan-CV.pdf' // Đường dẫn tới tệp trong thư mục public
     link.download = 'Ngo-Dong-Quan-CV.pdf'
     document.body.appendChild(link)
     link.click()
